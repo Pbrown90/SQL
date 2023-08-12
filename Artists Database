@@ -1,0 +1,25 @@
+--Create an artists database
+
+CREATE TABLE artists (id INTEGER PRIMARY KEY ,name TEXT,song TEXT,hometown TEXT);
+ 
+INSERT INTO artists VALUES (1,'Whitney Houston','I will always love you','Newark,NJ');
+INSERT INTO artists VALUES (2,'Britney Spears', 'Baby one more time', 'McComb,MS');
+INSERT INTO artists VALUES (3, 'Stevie Wonder', 'Ribbon in the Sky', 'Saginaw,MI');
+INSERT INTO artists VALUES (4, 'Celine Dion', 'My Heart Will Go On', 'Charlemagne,QC');
+INSERT INTO artists VALUES (5, 'Aretha Franklin', 'Respect','Memphis,TN');
+INSERT INTO artists VALUES (6, 'Chaka Khan', 'Im Every Woman', 'Chicago,IL');
+INSERT INTO artists VALUES (7, 'Mariah Carey','Fly Like A Bird', 'Huntington,NY');
+INSERT INTO artists VALUES (8, 'Missy Elliot','Take Away', 'Portsmouth,VA');
+INSERT INTO artists VALUES (9, 'Janet Jackson','Together Again','Gary,IN');
+INSERT INTO artists VALUES (10, 'Michael Jackson', 'Thriller', 'Gary,IN');
+
+--display the database ordered by name.
+SELECT * FROM artists ORDER BY name asc;
+
+--who are all the artists that were born in Gary,IN?
+SELECT name,hometown FROM artists WHERE hometown = 'Gary,IN';
+
+--what are the names of all the male artists in the table?
+SELECT name FROM artists WHERE gender = 'Male';
+
+
