@@ -1,0 +1,40 @@
+--Create an artists and albums database
+
+ 
+ CREATE TABLE artists (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,song TEXT,hometown TEXT);
+ 
+INSERT INTO artists(name,song,hometown) VALUES ('Whitney Houston','I will always love you','Newark,NJ');
+INSERT INTO artists(name,song,hometown) VALUES ('Britney Spears', 'Baby one more time', 'McComb,MS');
+INSERT INTO artists(name,song,hometown) VALUES ('Stevie Wonder', 'Ribbon in the Sky', 'Saginaw,MI');
+INSERT INTO artists(name,song,hometown) VALUES ('Aretha Franklin','Respect','Memphis,TN');
+INSERT INTO artists(name,song,hometown) VALUES ('Janet Jackson','Together Again','Gary,IN');
+INSERT INTO artists(name,song,hometown) VALUES ('Michael Jackson','Thriller', 'Gary,IN');
+INSERT INTO artists(name,song,hometown)VALUES ('Prince','Purple Rain','Minneapolis,MN');
+INSERT INTO artists(name,song,hometown) VALUES ('Mariah Carey','Fly Like A Bird', 'Huntington,NY');
+
+CREATE TABLE albums (id INTEGER PRIMARY KEY AUTOINCREMENT,artist_id INTEGER,album_title TEXT,release_date INTEGER);
+
+INSERT INTO albums(artist_id,album_title,release_date) VALUES (1,'Whitney',1987);
+INSERT INTO albums(artist_id,album_title,release_date) VALUES (2,'...Baby One More Time',1999);
+INSERT INTO albums(artist_id,album_title,release_date) VALUES (3,'Stevie Wonders Original Musiquarium',1982);
+INSERT INTO albums(artist_id,album_title,release_date) VALUES (4,'I Never Loved A Man The Way I Love You',1967);
+INSERT INTO albums(artist_id,album_title,release_date) VALUES (5,'The Velvet Rope',1997);
+INSERT INTO albums(artist_id,album_title,release_date) VALUES (6,'Thriller',1982);
+INSERT INTO albums(artist_id,album_title,release_date) VALUES (7,'Purple Rain',1984);
+INSERT INTO albums(artist_id,album_title,release_date) VALUES (8,'Butterfly',1997);
+
+--display the database ordered by name.
+SELECT * FROM artists ORDER BY name ASC;
+
+--what are the artist names and hometowns,along with the album title and release date?
+SELECT artists.name,artists.hometown,albums.album_title,albums.release_date 
+FROM artists JOIN albums 
+ON artists.id=albums.artist_id;
+
+--which artists have released albums ater 1985, and where are they from?
+SELECT artists.name, artists.hometown, albums.album_title, albums.release_date
+FROM artists
+JOIN albums ON artists.id = albums.artist_id
+WHERE albums.release_date > 1985;
+
+
